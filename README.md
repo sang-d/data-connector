@@ -6,5 +6,5 @@
 
 #### How to build
 
-`python setup.py sdist`
+`python -m build`
 
