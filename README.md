@@ -1,10 +1,7 @@
 
-#### Running tests
+#### To install
 
-`python -m pytest`
+`python -m pip dataco`
 
 
-#### How to build
-
-`python setup.py sdist bdist_wheel`
-
+#### Examples
