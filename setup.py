@@ -5,6 +5,9 @@ from setuptools import setup
 requires = [
     "pandas",
     "boto3",
+    "google-api-python-client",
+    "google-auth-httplib2",
+    "google-auth-oauthlib",
 ]
 
 about = {
@@ -19,7 +22,7 @@ with open("README.md", "r", "utf-8") as f:
 
 setup(
     name="dataco",
-    version="0.0.6",
+    version="0.0.9",
     description=about["__description__"],
     long_description=readme,
     long_description_content_type="text/markdown",
