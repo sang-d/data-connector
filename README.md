@@ -1,8 +1,9 @@
 
-#### To install
+#### Install
 
-`python -m pip dataco`
-
+```console
+$ python -m pip install dataco
+```
 
 #### Examples
 
@@ -11,9 +12,11 @@
 
 >>> s3 = S3('bucket_name')
 >>> df = s3.read_csv('file_name.csv')
+>>> df = s3.read_excel('file_name.xlsx', sheet_name='sheet_name')
 
 >>> drive = GDrive('credential_file')
->>> df = drive.read_excel('file_name.xlsx', 'sheet_id')
-
 >>> files = drive.search_files_by_name('cities.csv')
+
+>>> df = drive.read_csv('csv_file_id')
+>>> df = drive.read_excel('excel_file_id', 'sheet_id')
 ```
