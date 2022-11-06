@@ -22,7 +22,7 @@ with open("README.md", "r", "utf-8") as f:
 
 setup(
     name="dataco",
-    version="0.0.9",
+    version="0.1.1",
     description=about["__description__"],
     long_description=readme,
     long_description_content_type="text/markdown",
