@@ -2,10 +2,11 @@ from src.cloud_service import S3
 
 
 class TestS3:
-    test_bucket = 'test-data-connector'
+
+    test_bucket = "test-data-connector"
     s3 = S3(test_bucket)
-    csv_file = 'cities.csv'
-    excel_file = 'foodsales.xlsx'
+    csv_file = "cities.csv"
+    excel_file = "foodsales.xlsx"
     excel_sheet = 1
 
     def test_read_csv(self):

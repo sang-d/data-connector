@@ -1,11 +1,33 @@
 from setuptools import setup
+from codecs import open
 
-setup()
 
-# setup(
-#     name='dataco',
-#     version='0.0.1',
-#     install_requires=[
-#         'importlib-metadata; python_version == "3.10.4"',
-#     ],
-# )
+requires = [
+    "pandas>=1.1",
+    "boto3>=1.0",
+]
+
+about = {
+    "__description__": "tool to interact with data from different storage services",
+    "__author__": "SangDinh",
+    "__author_email__": "sxuan29@gmail.com",
+    "__url__": "https://github.com/sang-d/data-connector",
+}
+
+with open("README.md", "r", "utf-8") as f:
+    readme = f.read()
+setup(
+    name="dataco",
+    version="0.0.5",
+    description=about["__description__"],
+    long_description=readme,
+    long_description_content_type="text/markdown",
+    author=about["__author__"],
+    author_email=about["__author_email__"],
+    url=about["__url__"],
+    include_package_data=True,
+    install_requires=requires,
+    package_dir={"dataco": "src"},
+    packages=["dataco"],
+    python_requires=">=3.4, <4",
+)
