@@ -1,4 +1,4 @@
-from src.cloud_service import S3, GDrive
+from src import S3, GDrive
 
 
 class TestS3:
