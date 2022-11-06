@@ -1,10 +1,10 @@
-from setuptools import setup
 from codecs import open
 
+from setuptools import setup
 
 requires = [
-    "pandas>=1.1",
-    "boto3>=1.0",
+    "pandas",
+    "boto3",
 ]
 
 about = {
@@ -16,9 +16,10 @@ about = {
 
 with open("README.md", "r", "utf-8") as f:
     readme = f.read()
+
 setup(
     name="dataco",
-    version="0.0.5",
+    version="0.0.6",
     description=about["__description__"],
     long_description=readme,
     long_description_content_type="text/markdown",
