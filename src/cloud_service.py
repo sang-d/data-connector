@@ -2,6 +2,7 @@ from io import BytesIO
 
 import boto3
 import pandas as pd
+from google.cloud import storage
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
@@ -22,6 +23,24 @@ class S3:
         with BytesIO(obj.get()["Body"].read()) as data:
             df = pd.read_excel(data, **kwargs)
         return df
+
+
+class GStorage:
+    def __init__(self):
+        self.service = storage.Client()
+
+    def read_file(self, bucket_name: str, source_blob_name: str):
+        bucket = self.service.bucket(bucket_name)
+        blob = bucket.blob(source_blob_name)
+        return blob.download_as_bytes()
+
+    def read_csv(self, bucket_name: str, source_blob_name: str, **kwargs):
+        data = self.read_file(bucket_name, source_blob_name)
+        return pd.read_csv(BytesIO(data), **kwargs)
+
+    def read_excel(self, bucket_name: str, source_blob_name: str, **kwargs):
+        data = self.read_file(bucket_name, source_blob_name)
+        return pd.read_excel(BytesIO(data), **kwargs)
 
 
 class GDrive:

@@ -1,4 +1,4 @@
-from src import S3, GDrive
+from src import S3, GDrive, GStorage
 
 
 class TestS3:
@@ -40,3 +40,21 @@ class TestGDrive:
         files = self.gdrive.search_files_by_name("cities.csv")
         assert len(files) == 1
         assert files[0]["id"] == "12nOsIUrlhwe_rcrzhoRP6YzGW6COQZyU"
+
+
+class TestGStorage:
+    test_bucket = "my-new-bucket-2910"
+    gstorage = GStorage()
+    csv_file = "cities.csv"
+    excel_file = "foodsales.xlsx"
+    excel_sheet = 1
+
+    def test_read_csv(self):
+        df = self.gstorage.read_csv(self.test_bucket, self.csv_file)
+        assert len(df) == 128
+
+    def test_read_excel(self):
+        df = self.gstorage.read_excel(
+            self.test_bucket, self.excel_file, sheet_name=self.excel_sheet
+        )
+        assert len(df) == 244
